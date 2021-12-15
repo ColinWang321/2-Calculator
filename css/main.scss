@@ -1,0 +1,101 @@
+$line-width: 100%;
+$line-height: 15%;
+
+$number-width: 25%;
+$number-background: gray;
+$number-color: white;
+$number-border: 1px solid white;
+
+$cal-button-background: #ffe000;
+
+.cal {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+
+
+    ul {
+        width: $line-width;
+        height: $line-height;
+        display: flex;
+        // change default css.
+        padding-inline-start: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+
+        li {
+            width: $number-width;
+            background-color: $number-background;
+            color: $number-color;
+            border:$number-border;
+
+            list-style: none;
+            font-size: 35px;
+            text-align: center;
+            padding-top: 4%;
+            cursor: pointer;
+        }
+
+        // style changes when clicked.
+        li:active {
+            border: 1px solid red;
+        }
+    }
+
+
+    
+    // store line
+    #cal__store {
+        height: 5%;
+        background-color: black;
+        font-size: 30px;
+        color: white;
+
+        display: flex;
+        flex-direction: row-reverse;
+
+        //eliminate default style
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+    // display line
+    // Unfinished work: what if too much numbers and cause overwide issue?
+    #cal__display {
+        height: 20%;
+        background-color: black;
+        font-size: 80px;
+        color: white;
+
+        display: flex;
+        flex-direction: row-reverse;
+
+        //eliminate default style
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+
+    // common CSS -start
+    .cal__calButton {
+        background-color: $cal-button-background;
+    }
+    
+    // common - end 
+
+    
+    #cal__clear {
+        background-color: red;
+    }
+    #cal__history {
+        background-color: blue;
+        width: 50%;
+    }
+    #cal__zero {
+        width: 50%;
+    }
+    #cal__equal {
+        background-color: blue;
+    }
+
+
+}

@@ -14,38 +14,38 @@
         <!-- "clear", "history", and "division" -->
         <ul class="first">
             <li id="cal__clear" title="Clear" onclick="clearDisplay();">c</li>
-            <li id="cal__history" title="History">📖</li>
+            <li id="cal__history" title="History" onclick="alert('Still working on it!');">📖</li>
             <li id="cal__division" class="cal__calButton" onclick="calculate('division');">÷</li>
         </ul>
         
         <!-- 7， 8， 9， x -->
         <ul class="second">
-            <li id="cal__seven" onclick="clickNumber(7);">7</li>
-            <li id="cal__eight" onclick="clickNumber(8);">8</li>
-            <li id="cal__nine" onclick="clickNumber(9);">9</li>
+            <li id="cal__seven" onclick="clickNumber('7');">7</li>
+            <li id="cal__eight" onclick="clickNumber('8');">8</li>
+            <li id="cal__nine" onclick="clickNumber('9');">9</li>
             <li id="cal__multiple" class="cal__calButton" onclick="calculate('multiple');">×</li>
         </ul>
 
         <!--   4, 5, 6, -   -->
         <ul class="third">
-            <li id="cal__four" onclick="clickNumber(4);">4</li>
-            <li id="cal__five" onclick="clickNumber(5);">5</li>
-            <li id="cal__six" onclick="clickNumber(6);">6</li>
+            <li id="cal__four" onclick="clickNumber('4');">4</li>
+            <li id="cal__five" onclick="clickNumber('5');">5</li>
+            <li id="cal__six" onclick="clickNumber('6');">6</li>
             <li id="cal__minus" class="cal__calButton" onclick="calculate('minus');">-</li>
         </ul>
 
         <!--   1, 2, 3, +   -->
         <ul class="fourth">
-            <li id="cal__one" onclick="clickNumber(1);">1</li>
-            <li id="cal__two" onclick="clickNumber(2);">2</li>
-            <li id="cal__three" onclick="clickNumber(3);">3</li>
+            <li id="cal__one" onclick="clickNumber('1');">1</li>
+            <li id="cal__two" onclick="clickNumber('2');">2</li>
+            <li id="cal__three" onclick="clickNumber('3');">3</li>
             <li id="cal_plus" class="cal__calButton" onclick="calculate('plus');">+</li>
         </ul>
 
         <!--   0, ., =   -->
         <ul class="fifth">
-            <li id="cal__zero">0</li>
-            <li id="cal__dot">.</li>
+            <li id="cal__zero" onclick="clickNumber('0');">0</li>
+            <li id="cal__dot" onclick="clickNumber('.');">.</li>
             <li id="cal__equal" class="cal__calButton" onclick="equals();">=</li>
         </ul>
     </div>

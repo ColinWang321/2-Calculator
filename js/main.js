@@ -1,78 +1,99 @@
 
 
-// Display String: display numbers you current input
+
+// Display String:          display numbers you current input
 var dStr = "";
 
-// Store String: store numbers or result when you click buttons like "+", "-",...
+// Store String:            store numbers or result when you click buttons like "+", "-",...
 var sStr = "";
 
-// Store Calculate Button: before "=" calculate or minus/plus/.., need to know what calculate method you just used.
+// Store Calculate Button:  before "=" calculate or minus/plus/.., need to know what calculate method you just used.
 var sBtn = "";
 
+// Keep Value String:       Only used when you click "=" and then click calculate buttons. 
+var kStr = "";
+
+function setStoreString(input){
+    document.getElementById("cal__store").innerHTML = input; 
+}
+
+function setDisplayString(input){
+    document.getElementById("cal__display").innerHTML = input;
+}
 
 
 
+// Used when click "c" (clear) button.
 function clearDisplay() {
     sStr = "";
     dStr = "";
     sBtn = "";
-    document.getElementById("cal__store").innerHTML = "";
-    document.getElementById("cal__display").innerHTML = "0";
+    setStoreString("");
+    setDisplayString("0");
 }
 
-
-// Put the number you clicked in a String.
-// Display the string.
-// Number(String) when you need to calculate.
 
 
 // Function: Use this function when you click a number button.
 // switch case expression;
 function clickNumber(number) {
+    if(kStr != ""){
+        kStr = "";
+    }
      switch(number){
-        case 1: 
+        case "0": 
+            dStr = dStr + "0";
+            setDisplayString(dStr);
+            return;
+
+        case "1": 
             dStr = dStr + "1";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
          
-        case 2: 
+        case "2": 
             dStr = dStr + "2";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
             
-        case 3: 
+        case "3": 
             dStr = dStr + "3";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
 
-        case 4: 
+        case "4": 
             dStr = dStr + "4";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
          
-        case 5: 
+        case "5": 
             dStr = dStr + "5";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
             
-        case 6: 
+        case "6": 
             dStr = dStr + "6";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
 
-        case 7: 
+        case "7": 
             dStr = dStr + "7";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
          
-        case 8: 
+        case "8": 
             dStr = dStr + "8";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
             return;
             
-        case 9: 
+        case "9": 
             dStr = dStr + "9";
-            document.getElementById("cal__display").innerHTML = dStr;
+            setDisplayString(dStr);
+            return;
+        
+        case ".": 
+            dStr = dStr + ".";
+            setDisplayString(dStr);
             return;
 
         default:
@@ -87,12 +108,21 @@ function clickNumber(number) {
 
 // : common actions after you click "=" button.
 function equalsCommonAction(){
-    document.getElementById("cal__display").innerHTML = dStr;
-    document.getElementById("cal__store").innerHTML = "";
+    setDisplayString(dStr);
+    kStr = dStr;
+
     dStr = "";
-    
+    sStr = "";
+    sBtn = "";
+    setStoreString("");  
 }
 
+
+// Unfinished work: 
+//  After clicked "=", Can we keep calculate?
+//  1. if click numbers, dispose dstr numbers. store new number in dstr 
+//  (Should be written in function "clickNumber")
+//  2. if click calbutton, save dstr to sstr, then calculate
 
 // Function name: equals. 
 // Function: Use when click "=" button.
@@ -128,16 +158,28 @@ function equals(){
 
 
 
-// : common actions used in below function
+// : common actions used when click calculate button: 
 function calCommonAction(btnName){
-    document.getElementById("cal__store").innerHTML = sStr;
+    setStoreString(sStr);
     dStr = "";
-    document.getElementById("cal__display").innerHTML = "0";
+    setDisplayString("0");
     sBtn = btnName;
 }
 
-// : use this function when you click buttons like -, + , ..
+// : use this function when you click calculate buttons like -, + , ..
 function calculate(btnName){
+    // If you still want to calculate after you clicked "=";
+    if(kStr != ""){
+        dStr = kStr;
+        kStr = "";
+    }
+
+    // If you clicked clear button "c", then click calculate button. Set sStr "0";
+    if(sStr == ""){
+        sStr = "0";
+    } 
+
+    // Calculate process
     if(sBtn == ""){
         sStr = dStr;
         calCommonAction(btnName);
